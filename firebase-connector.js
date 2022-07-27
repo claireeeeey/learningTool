@@ -2,7 +2,8 @@
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 function initializeFirebase () {
-  const firebaseConfig = {
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
     apiKey: "AIzaSyCucqrbubrsMi31OmxroTUIJsUsm5x3-ew",
     authDomain: "best-learning-tool-b5156.firebaseapp.com",
     projectId: "best-learning-tool-b5156",
@@ -11,12 +12,13 @@ function initializeFirebase () {
     appId: "1:101366930945:web:8f2e6f633845e737f2aa00",
     measurementId: "G-3PR2PQRBPV"
   };
+  // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
   firebase.analytics();
 }
-// Your web app's Firebase configuration
 
-// Initialize Firebase
+
+
 
 
 let myFlashcards = [ {
@@ -40,11 +42,12 @@ let myFlashcards = [ {
 // If the location doesn't exist is will be created
 // Create the reference location
 let dbLocation = firebase.database().ref('deck/flashcards'); 
- 
 // myFlashcards will be stored under flashcards in the database
 // Anything that was in this location will be overwritten
 // Thus, a write operation also does an update
 dbLocation.set(myFlashcards);
+
+initializeFirebase();
 
 // As before,make the database point to the location where the data exists
 // If the location doesn't exist it will be created but there will be nothing to retirieve
@@ -52,13 +55,10 @@ let fc = firebase.database().ref('deck/flashy');
 
 // A variable to store the JSON results in a human readable format
 let jsonString;
-
 // Tell Firebase to retrieve your data
 fc.on("value", function(retrieve) {
-  
     //Get the raw JSON data back from the database
     let queryData = retrieve.val();
-    
     // Turn the data into a JSON String
     jsonString = JSON.stringify(queryData);
 });
