@@ -15,5 +15,12 @@ let myFlashcards = [ {
     }
   ];
   
-let dbLocation = firebase.database().ref('deck/flashcards'); 
-dbLocation.set(myFlashcards);
+function writeStudentAnswers(name, email, answers) {
+  firebase.database().ref('users/' + name).set({
+    username: name,
+    email: email,
+    answers : answers
+  });
+  let dbLocation = firebase.database().ref('deck/flashy')
+  dbLocation.set(myFlashcards);
+}
