@@ -15,7 +15,5 @@ let myFlashcards = [ {
     }
   ];
   
-document.getElementById("json").textContent = JSON.stringify(myFlashcards);
-
 let dbLocation = firebase.database().ref('deck/flashcards'); 
 dbLocation.set(myFlashcards);
