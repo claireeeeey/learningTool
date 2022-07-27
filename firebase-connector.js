@@ -1,46 +1,36 @@
 let myFlashcards = [ {
-    "question": "Name this very species of bird.",
+    "question": "Name this species of bird.",
     "image" : "images/barn-owl-2550068__340.webp",
-    "answer": "Owl of Barn"
-    }, 
+    "answer": "Barn Owl"
+    },
     {
     "question": "Name this species of bird.",
     "image" : "images/dove-2516641__340.webp",
     "answer": "Dove"
-    }, 
+    },
     {
     "question": "Name this species of bird.",
     "image" : "images/hummingbird-2139279__340.webp",
     "answer": "Hummingbird"
-    }, 
-    {
-    "question": "Name this species of bird.",
-    "image" : "images/kingfisher-2046453__340.webp",
-    "answer": "Kingfisher"
-    }, 
- {
-    "question": "Name this species of bird.",
-    "image" : "images/owl-50267__340.webp",
-    "answer": "Regular old Owl"
-    }, 
-{
-    "question": "Name this species of bird.",
-    "image" : "images/swan-2107052__340.webp",
-    "answer": "Swanny River"
-    }, 
-    {
-     "question": "What is the capital of PA?",
-     "answer": "Harrisburg"
-     }
-     ];
+    }
+  ];
 
+function initializeFirebase () {
+  const firebaseConfig = {
+    apiKey: "AIzaSyCucqrbubrsMi31OmxroTUIJsUsm5x3-ew",
+    authDomain: "best-learning-tool-b5156.firebaseapp.com",
+    databaseURL: "https://best-learning-tool-b5156-default-rtdb.firebaseio.com",
+    projectId: "best-learning-tool-b5156",
+    storageBucket: "best-learning-tool-b5156.appspot.com",
+    messagingSenderId: "101366930945",
+    appId: "1:101366930945:web:8f2e6f633845e737f2aa00",
+    measurementId: "G-3PR2PQRBPV"
+  };
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+}
 
-// Make the database point to the location root -> deck -> flashcards
-// If the location doesn't exist is will be created
-// Create the reference location
+initializeFirebase();
+
 let dbLocation = firebase.database().ref('deck/flashcards'); 
- 
-// myFlashcards will be stored under flashcards in the database
-// Anything that was in this location will be overwritten
-// Thus, a write operation also does an update
 dbLocation.set(myFlashcards);
