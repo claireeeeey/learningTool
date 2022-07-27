@@ -1,7 +1,41 @@
-// Import the functions you need from the SDKs you need
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-function initializeFirebase () {
+let myFlashcards = [ {
+    "question": "Name this very species of bird.",
+    "image" : "images/barn-owl-2550068__340.webp",
+    "answer": "Owl of Barn"
+    }, 
+    {
+    "question": "Name this species of bird.",
+    "image" : "images/dove-2516641__340.webp",
+    "answer": "Dove"
+    }, 
+    {
+    "question": "Name this species of bird.",
+    "image" : "images/hummingbird-2139279__340.webp",
+    "answer": "Hummingbird"
+    }, 
+    {
+    "question": "Name this species of bird.",
+    "image" : "images/kingfisher-2046453__340.webp",
+    "answer": "Kingfisher"
+    }, 
+ {
+    "question": "Name this species of bird.",
+    "image" : "images/owl-50267__340.webp",
+    "answer": "Regular old Owl"
+    }, 
+{
+    "question": "Name this species of bird.",
+    "image" : "images/swan-2107052__340.webp",
+    "answer": "Swanny River"
+    }, 
+    {
+     "question": "What is the capital of PA?",
+     "answer": "Harrisburg"
+     }
+     ];
+
+
+function initializeFirebase() {
   // Your web app's Firebase configuration
   var firebaseConfig = {
     apiKey: "AIzaSyCucqrbubrsMi31OmxroTUIJsUsm5x3-ew",
@@ -17,51 +51,28 @@ function initializeFirebase () {
   firebase.analytics();
 }
 
-
-
-
-
-let myFlashcards = [ {
-    "question": "Name this species of bird.",
-    "image" : "images/barn-owl-2550068__340.webp",
-    "answer": "Barn Owl"
-    },
-    {
-    "question": "Name this species of bird.",
-    "image" : "images/dove-2516641__340.webp",
-    "answer": "Dove"
-    },
-    {
-    "question": "Name this species of bird.",
-    "image" : "images/hummingbird-2139279__340.webp",
-    "answer": "Hummingbird"
-    }
-  ];
-
-// Make the database point to the location root -> deck -> flashcards
-// If the location doesn't exist is will be created
-// Create the reference location
-let dbLocation = firebase.database().ref('deck/flashcards'); 
-// myFlashcards will be stored under flashcards in the database
-// Anything that was in this location will be overwritten
-// Thus, a write operation also does an update
-dbLocation.set(myFlashcards);
+function writeStudentAnswers(name, email, answers) {
+  firebase.database().ref('users/' + name).set({
+    username: name,
+    email: email,
+    answers : answers
+  });
+  let dbLocation = firebase.database().ref('deck/flashy')
+  dbLocation.set(myFlashcards);
+}
 
 initializeFirebase();
+writeStudentAnswers("michael","foo@bar.com", ["b","c","e","f"]);
+writeStudentAnswers("jennifer","third@floor.com", ["45","Gettysburg address","Windows 11","french fries"]);
 
-// As before,make the database point to the location where the data exists
-// If the location doesn't exist it will be created but there will be nothing to retirieve
 let fc = firebase.database().ref('deck/flashy');
+console.log('Output: ' + fc.toString() );
+console.log('JSON: ' + fc.toJSON() );
 
-// A variable to store the JSON results in a human readable format
-let jsonString;
-// Tell Firebase to retrieve your data
+let qd;
 fc.on("value", function(retrieve) {
-    //Get the raw JSON data back from the database
     let queryData = retrieve.val();
-    // Turn the data into a JSON String
-    jsonString = JSON.stringify(queryData);
+    console.log('Real JSON:' + JSON.stringify(queryData) );
+    qd = JSON.stringify(queryData);
 });
-
-// Print the data out as a JSON string or otherwise manipulate it
-console.log (' JSON string:' + jsonString )
+console.log('Real Real JSON:' + qd );
