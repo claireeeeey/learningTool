@@ -24,3 +24,4 @@ function writeStudentAnswers(name, email, answers) {
   let dbLocation = firebase.database().ref('deck/flashy')
   dbLocation.set(myFlashcards);
 }
+writeStudentAnswers("michael","foo@bar.com", ["b","c","e","f"]);
