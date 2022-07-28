@@ -15,6 +15,9 @@ let myFlashcards = [ {
     }
   ];  
 
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.1/firebase-app.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.9.1/firebase-analytics.js";
+
 function initializeFirebase () {
   var firebaseConfig = {
     apiKey: "AIzaSyCucqrbubrsMi31OmxroTUIJsUsm5x3-ew",
@@ -30,15 +33,17 @@ function initializeFirebase () {
   firebase.analytics();
 }
 
-function writeStudentAnswers(name, email, answers) {
-  firebase.database().ref('users/' + name).set({
+import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/9.9.1/firebase-database.jse";
+
+function writeUserData(userId, name, email) {
+  const db = getDatabase();
+  set(ref(db, 'users/' + userId), {
     username: name,
     email: email,
-    answers : answers
   });
   let dbLocation = firebase.database().ref('deck/flashy')
   dbLocation.set(myFlashcards);
 }
 
 initializeFirebase();
-writeStudentAnswers("michael","foo@bar.com", ["b","c","e","f"]);
+writeUserData("lingyuy","Lingyu", "yanlingyu99@gmail.com");
