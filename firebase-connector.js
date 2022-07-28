@@ -29,8 +29,8 @@ function initializeFirebase () {
     appId: "1:101366930945:web:8f2e6f633845e737f2aa00",
     measurementId: "G-3PR2PQRBPV"
   };
-  firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
 }
 
 import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/9.9.1/firebase-database.jse";
