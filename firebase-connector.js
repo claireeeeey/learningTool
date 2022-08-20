@@ -5,14 +5,14 @@ onValue, remove } from
 "https://www.gstatic.com/firebasejs/9.9.2/firebasedatabase.js (https://www.gstatic.com/firebasejs/9.9.2/firebasedatabase.js)";
 <!-- define the script as a module. This is a special type of JavaScript file that allows you to include other JavaScript libraries. -->
 <script type="module" src="firebase-connector.js">
-  // Import the functions you need from the SDKs you need
+  //Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-app.js";
   import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-analytics.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
+  //TODO: Add SDKs for Firebase products that you want to use
+  //https://firebase.google.com/docs/web/setup#available-libraries
 
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  //Your web app's Firebase configuration
+  //For Firebase JS SDK v7.20.0 and later, measurementId is optional
   const firebaseConfig = {
     apiKey: "AIzaSyB7PyoBopqhHlDIeMtIfZc9tP2PyWdPEOQ",
     authDomain: "best-learning-tool-9281c.firebaseapp.com",
@@ -23,7 +23,7 @@ onValue, remove } from
     measurementId: "G-B6YY6VSY25"
   };
 
-  // Initialize Firebase
+  //Initialize Firebase
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
 </script>
