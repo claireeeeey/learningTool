@@ -3,10 +3,9 @@ onValue, remove} from "https://www.gstatic.com/firebasejs/9.9.3/firebasedatabase
 import {initializeApp} from "https://www.gstatic.com/firebasejs/9.9.3/firebase-app.js";
 import {getAnalytics} from "https://www.gstatic.com/firebasejs/9.9.3/firebase-analytics.js";
 function initializeFirebase() {
-  var firebaseConfig = {
+  const firebaseConfig = {
     apiKey: "AIzaSyB7PyoBopqhHlDIeMtIfZc9tP2PyWdPEOQ",
     authDomain: "best-learning-tool-9281c.firebaseapp.com",
-    databaseURL: "https://best-learning-tool-9281c-default-rtdb.firebaseio.com",
     projectId: "best-learning-tool-9281c",
     storageBucket: "best-learning-tool-9281c.appspot.com",
     messagingSenderId: "988183622580",
