@@ -4,13 +4,14 @@ import {initializeApp} from "https://www.gstatic.com/firebasejs/9.9.3/firebase-a
 import {getAnalytics} from "https://www.gstatic.com/firebasejs/9.9.3/firebase-analytics.js";
 function initializeFirebase() {
   const firebaseConfig = {
-    apiKey: "AIzaSyCmprwZYUG5w0wB8Pa3AeGxeCxQp40m3LQ",
-    authDomain: "test3-24a5a.firebaseapp.com (Links to an external site.)",
-    projectId: "test3-24a5a",
-    storageBucket: "test3-24a5a.appspot.com (Links to an external site.)",
-    messagingSenderId: "333990236385",
-    appId: "1:333990236385:web:53a034772bf17a95fb67a0",
-    measurementId: "G-XPSE5H2EHE"
+    apiKey: "AIzaSyB7PyoBopqhHlDIeMtIfZc9tP2PyWdPEOQ",
+    authDomain: "best-learning-tool-9281c.firebaseapp.com (Links to an external site.)",
+    databaseURL: "https://best-learning-tool-9281c-default-rtdb.firebaseio.com (Links to an external site.)",
+    projectId: "best-learning-tool-9281c",
+    storageBucket: "best-learning-tool-9281c.appspot.com (Links to an external site.)",
+    messagingSenderId: "988183622580",
+    appId: "1:988183622580:web:9677979a51d67f58d0f8e1",
+    measurementId: "G-B6YY6VSY25"
   };
   firebase.initializeApp(firebaseConfig);
   firebase.analytics();
